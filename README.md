@@ -19,6 +19,7 @@ This is really a proof of concept, first draft. I am currently re-running it on 
 ### Workflow
 
 cd badsectors
+
 ./reread-bad-sectors.sh
 
 This is read-only, but may still damage a fragile disk. It greps the kernel logs for sector errors, and directly reads those sectors looking for errors. It's output is a list of those sectors which again generated errors. Currently it doesn't even distinguish which drive the sector errors are on, but since it is a read only test, this is fairly harmless since we are just going to read verify some good sectors on the wrong disk, and these won't get passed to the write stage.
