@@ -40,3 +40,7 @@ Haven't tried this yet, but running dd to write and read every byte of a new dis
 ### Conclusion
 The best use of this utility is probably not on your live production array (although I survived this), but in a separate system used to analyze disks, maybe a VM with direct disk access.
 
+
+### References
+http://sourceforge.net/p/hdparm/discussion/461704/thread/ce9e2318/
+
