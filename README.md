@@ -10,6 +10,8 @@ Spinrite not only requires booting into DOS (sometimes a difficult to obtain ver
 
 This is obviously ridiculous behaviour. I don't believe linux md can heal like this if data conflicts appear, so it may trash your md array even further, but you've already got a read error... BTRFS in redundant configuration can probably cope with this abuse, but I haven't tried this at all.
 
+badblocks does something similar but takes many hours per modern disk of several TB. This code focusses on known borderline or bad sectors which are actually in use.
+
 There are a number of critical environment variables which are disk dependent. Many disks these days have 4096 byte physical block layout, but 512b logical layout. For a write of <4096 bytes, a read-write-read cycle has to be performed. Therefore, physical block size should be 4096 in the environment variable, unless you have an older 512b block disk. This allows a straightforward write operation without failing due to read. I think dd 'noerror' would get around this anyway, but 4096 blocks are the right way to go.
 
 The DISK environment variable should be set in local.sh . I separated it out into local-example.sh, and this should be copied and edited. Highly recommend using /dev/disk/by-id path instead of raw device id which can change.
